@@ -7,9 +7,7 @@ const PORT = process.env.PORT || 3001
 const HOST = process.env.HOST || "localhost"
 
 
-//rotta per tutti i films dei database
 
-server.use('/api/films', filmsRouter)
 
 server.listen(PORT, () => { 
 
@@ -23,4 +21,8 @@ server.get( '/', (req, res) => {
     res.status(200).send({ message: "Server is running!" })
 
 })
+
+//rotta per tutti i films dei database
+
+server.use('/api/films', filmsRouter)
 
