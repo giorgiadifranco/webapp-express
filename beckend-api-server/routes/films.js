@@ -3,7 +3,7 @@ const router = express.Router();
 const connection = require ('../database/connection')
 
 
-//rotta pèer tutti i libri
+//rotta per tutti i libri
 
 router.get('/', (req, res)=>{
 
@@ -15,12 +15,31 @@ router.get('/', (req, res)=>{
         
 
          res.json({
-            results
-    })
-
+            movies: results,
+            count: results.length
+         })
     })
 
    
+})
+
+router.get('/:id', (req, res) =>{
+    
+    const id = req.params.id
+    const sql = `SELECT * FROM movies WHERE id = ?`;
+
+    connection.query(sql, [id], (req, results) =>{
+        if (err) { 
+            return res.status(500).json({err: err})
+        }
+            console.log(results);
+
+            res.json({
+            movies: `returning the book with an id of ${id}`
+            
+    });
+});
+
 })
 
 module.exports = router;

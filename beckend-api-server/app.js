@@ -13,7 +13,7 @@ server.use('/api/films', filmsRouter)
 
 server.listen(PORT, () => { 
 
-    console.log(`Server is listening on port: ${HOST} ${PORT}`);
+    console.log(`Server is listening on port: ${HOST}:${PORT}`);
     
 } )
 
