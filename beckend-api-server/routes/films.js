@@ -15,7 +15,7 @@ router.get('/', (req, res)=>{
         
 
          res.json({
-        films: 'all films'
+            results
     })
 
     })
